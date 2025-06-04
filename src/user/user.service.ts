@@ -1,7 +1,7 @@
 import { BadRequestException, HttpStatus, Injectable, InternalServerErrorException, NotFoundException } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
-import { User } from "src/schemas/user.schema";
+import { User } from "../schemas/user.schema";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
 
@@ -50,8 +50,11 @@ export class UserService {
             const updated = await this.userModel.findByIdAndUpdate(id, updateUserDto, { new: true });
 
             if (!updated) throw new NotFoundException('Usuário não encontrado');
+            
             return updated;
         } catch(error) {
+            if(error.response.error === "Not Found") throw new NotFoundException('Usuário não encontrado')
+
             throw new InternalServerErrorException('Não foi possível atualizar o usuário.');
         }
     }
