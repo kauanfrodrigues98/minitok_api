@@ -20,6 +20,9 @@ Para que o projeto funcione corretamente na sua máquina local, você deve segui
 - Para que você tenha acesso externo aos endpoints você pode usar o [Insomnia](https://insomnia.rest/download) ou [Postman](https://www.postman.com/).
 - Foi feita uma documentação simples no Postman apenas para fins de complemento da documentação principal que foi feita usando o Swagger. Para acessar a documentação no Postman basta clicar no link [Documentação da API no Postman](https://documenter.getpostman.com/view/13172288/2sB2qi8xVz).
 
+## Executar teste JEST
+ - No terminal na raiz do projeto execute o comando `npm run test src/user/user.service.spec.ts`, para rodar o teste basico de unidade.
+
 ## Tecnologias utilizadas
 
 NestJS - Framework para desenvolvimento de aplicações Node.
